@@ -1,0 +1,7 @@
+langchain
+llama-cpp-python
+pdf2image
+pytesseract
+scikit-learn
+tqdm
+pandas
