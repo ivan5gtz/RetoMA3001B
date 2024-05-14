@@ -1,7 +1,9 @@
-langchain
-llama-cpp-python
 pdf2image
 pytesseract
 scikit-learn
 tqdm
 pandas
+nltk
+python-docx
+textract
+langdetect
