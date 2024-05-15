@@ -38,5 +38,12 @@ df['label'] = le.transform(df['label'])
 tfidf = TfidfVectorizer(preprocessor=preprocess_text)
 tfidf_matrix = tfidf.fit_transform(df['CV'])
 
+# Creacion de dataframe final
+df_tokens = pd.DataFrame(tfidf_matrix.toarray())
+df_final = pd.concat([df_tokens,df['label']], axis=1)
+
+# Guardado de dataframe
+df_final.to_csv('labeled_features.csv',index=False)
+
 
 
