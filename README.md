@@ -37,7 +37,7 @@ Successfully build Docker Container
 
 ## Correr notebook
 
-La primera vez que se ejecute un notebook, será necesario definir el entorno con el cual trabajará el kernel, es necesario seleccionar *OCR_fase1 (Python 3.9.19)*
+La primera vez que se ejecute un notebook, será necesario definir el entorno con el cual trabajará el kernel, es necesario seleccionar **OCR_fase1 (Python 3.9.19)**.
 
 ## Main.py
 
@@ -49,4 +49,4 @@ Para poder correr el script, es necesario tener en la carpeta raíz un carpeta t
 
 ### Salidas
 
-Una vez terminada la ejecución del script, se creará un archivo separado por comas **labeled_features.csv**, el cual contiene la información para trabajar con los algoritmos de predicción.
+Una vez terminada la ejecución del script, se creará el archivo separado por comas **labeled_features.csv**, el cual contiene la información para trabajar con los algoritmos de predicción.
