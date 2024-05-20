@@ -45,7 +45,7 @@ El archivo **Main.py** contiene el script principal del proyecto, mediante el cu
 
 ### Requisitos
 
-Para poder correr el script, es necesario tener en la carpeta raíz un carpeta titulada **CVs**, la cual contiene los archivos correspondientes a los currículums que se deseen analizar, la cual a su vez contiene tres subcarpetas para cada nivel de jerarquía, tituladas correspondientemente: *Nivel Director*, *Nivel Gerente*, *Nivel Especialista*. Las extensiones de archivos admitidos por el momento son **.pdf**, **.doc** y  **.docx**.
+Para poder correr el script, es necesario tener en la carpeta raíz un carpeta titulada **CVs**, la cual a su vez contiene tres subcarpetas para cada nivel de jerarquía que contienen los archivos correspondientes a los currículums que se deseen analizar,  tituladas correspondientemente: *Nivel Director*, *Nivel Gerente*, *Nivel Especialista*. Las extensiones de archivos admitidos por el momento son **.pdf**, **.doc** y  **.docx**.
 
 ### Salidas
 
