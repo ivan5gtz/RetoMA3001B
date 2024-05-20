@@ -45,5 +45,8 @@ df_final = pd.concat([df_tokens,df['label']], axis=1)
 # Guardado de dataframe
 df_final.to_csv('labeled_features.csv',index=False)
 
+# Mensaje final
+print('#####FINISHED#####')
+
 
 
