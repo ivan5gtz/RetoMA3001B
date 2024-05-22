@@ -23,7 +23,7 @@ El entorno del contenedor se define a través de la carpeta de configuración **
 
 ### Lanzando el proyecto
 
-Para poder trabjar con el entorno definido, es necesario ir a la parte inferior izquierda de VSCode y dar click en el símbolo (><). Esto abrirá un menú desplegable, en el cual es necesario dar click en la opción "**Volver a abrir en el contenedor**". 
+Para poder trabajar con el entorno definido, es necesario ir a la parte inferior izquierda de VSCode y dar click en el símbolo (><). Esto abrirá un menú desplegable, en el cual es necesario dar click en la opción "**Volver a abrir en el contenedor**". 
 
 <p align="center">
 <img src="imagenes_readme/menu_extension.png" width="70%" align="center"/></a>
