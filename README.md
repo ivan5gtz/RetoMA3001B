@@ -37,7 +37,7 @@ Successfully build Docker Container
 
 ## Correr notebook
 
-La primera vez que se ejecute un notebook, será necesario definir el entorno con el cual trabajará el kernel, es necesario seleccionar *OCR_fase1 (Python 3.9.19)*
+La primera vez que se ejecute un notebook, será necesario definir el entorno con el cual trabajará el kernel, es necesario seleccionar **OCR_fase1 (Python 3.9.19)**.
 
 ## Main.py
 
@@ -45,8 +45,8 @@ El archivo **Main.py** contiene el script principal del proyecto, mediante el cu
 
 ### Requisitos
 
-Para poder correr el script, es necesario tener en la carpeta raíz un carpeta titulada **CVs**, la cual contiene los archivos correspondientes a los currículums que se deseen analizar, la cual a su vez contiene tres subcarpetas para cada nivel de jerarquía, tituladas correspondientemente: *Nivel Director*, *Nivel Gerente*, *Nivel Especialista*. Las extensiones de archivos admitidos por el momento son **.pdf**, **.doc** y  **.docx**.
+Para poder correr el script, es necesario tener en la carpeta raíz un carpeta titulada **CVs**, la cual a su vez contiene tres subcarpetas para cada nivel de jerarquía que contienen los archivos correspondientes a los currículums que se deseen analizar,  tituladas correspondientemente: *Nivel Director*, *Nivel Gerente*, *Nivel Especialista*. Las extensiones de archivos admitidos por el momento son **.pdf**, **.doc** y  **.docx**.
 
 ### Salidas
 
-Una vez terminada la ejecución del script, se creará un archivo separado por comas **labeled_features.csv**, el cual contiene la información para trabajar con los algoritmos de predicción.
+Una vez terminada la ejecución del script, se creará el archivo separado por comas **labeled_features.csv**, el cual contiene la información para trabajar con los algoritmos de predicción.
