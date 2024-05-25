@@ -17,7 +17,7 @@ RUN apt-get update \
   && apt-get -y install libtesseract-dev \
   && apt-get -y install poppler-utils \
   && apt-get -y install unoconv \
-  && apt-get -y install antiword
+  && apt-get -y install antiword 
 
 # Copy files
 RUN mkdir requirements

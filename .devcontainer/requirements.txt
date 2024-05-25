@@ -4,6 +4,6 @@ scikit-learn
 tqdm
 pandas
 nltk
-python-docx
 textract
 langdetect
+googletrans==3.1.0a0

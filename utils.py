@@ -5,12 +5,16 @@ import textract
 import subprocess
 import pytesseract
 
-from docx import Document
 from pdf2image import convert_from_path
+
+import zipfile
+from PIL import Image
+from io import BytesIO
 
 # Generales
 import re
 import pandas as pd
+import numpy as np
 
 # Detección de Lenguaje
 import nltk
@@ -18,16 +22,52 @@ nltk.download('punkt')
 from langdetect import detect
 from nltk.corpus import stopwords
 
+#Traducción
+from googletrans import Translator
+translator = Translator()
+
+
 # OCR
 # Lectura de documentos .doc
 def extract_text_from_doc(doc_path):
     text = textract.process(doc_path).decode('utf-8')
+    if len(text) != 0:
+        return text
+
+    # Extraer imagenes de word
+    z = zipfile.ZipFile(doc_path)
+    all_files = z.namelist()
+
+    imagenes_path = [x for x in all_files if x.startswith('word/media/')]
+
+    text = ''
+    for path in imagenes_path:
+        imagen = z.open(path).read()
+        imagen = Image.open(BytesIO(imagen))
+
+        text += pytesseract.image_to_string(imagen)
     return text
 
 # Lectura de documentos .docx
 def extract_text_from_docx(docx_path):
-    doc = Document(docx_path)
-    text = '\n'.join(paragraph.text for paragraph in doc.paragraphs)
+    text = textract.process(docx_path).decode('utf-8')
+
+    if len(text) != 0:
+        return text
+
+    # Extraer imagenes de word
+    z = zipfile.ZipFile(docx_path)
+    all_files = z.namelist()
+
+    imagenes_path = [x for x in all_files if x.startswith('word/media/')]
+
+    text = ''
+    for path in imagenes_path:
+        imagen = z.open(path).read()
+        imagen = Image.open(BytesIO(imagen))
+
+        text += pytesseract.image_to_string(imagen)
+
     return text
 
 # Lectura de documentos .pdf
@@ -57,13 +97,21 @@ def extract_text_from_folders(folders):
     for folder in folders:
         for root, _, files in os.walk(folder):
             for filename in files:
+                print(filename)
+                if filename == '.gitignore':
+                    continue
                 file_path = os.path.join(root, filename)
                 text = extract_text_from_file(file_path)
                 label = folder.split('/')[-1]
+
+                if translator.detect(text).lang == 'es':
+                    text = translator.translate(text, src='es', dest='en').text
+                
                 extracted_texts.append({
                     'label': label,
                     'CV': text
                 })
+
     return extracted_texts
 
 # Creación de la base de datos
