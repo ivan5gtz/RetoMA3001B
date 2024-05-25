@@ -97,7 +97,6 @@ def extract_text_from_folders(folders):
     for folder in folders:
         for root, _, files in os.walk(folder):
             for filename in files:
-                print(filename)
                 if filename == '.gitignore':
                     continue
                 file_path = os.path.join(root, filename)
