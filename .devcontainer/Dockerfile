@@ -23,16 +23,18 @@ RUN apt-get update \
 RUN mkdir requirements
 
 COPY install_quarto.sh install_dependencies.sh requirements/
-RUN bash ./requirements/install_dependencies.sh
-RUN bash ./requirements/install_quarto.sh $QUARTO_VER
 
-#RUN mkdir /app
-#RUN git clone https://github.com/abetlen/llama-cpp-python.git /app
-#WORKDIR /app
-#RUN git submodule update --init --recursive
+# Convert DOS to Unix line end formatting
+RUN dos2unix /requirements/install_dependencies.sh && chmod +x /requirements/install_dependencies.sh
+RUN bash ./requirements/install_dependencies.sh
+
+# Convert DOS to Unix line end formatting
+RUN dos2unix /requirements/install_quarto.sh && chmod +x /requirements/install_quarto.sh
+RUN bash ./requirements/install_quarto.sh $QUARTO_VER
 
 WORKDIR /
 
 # Install dependencies
 COPY requirements.txt install_requirements.sh requirements/
+RUN dos2unix /requirements/install_requirements.sh && chmod +x /requirements/install_requirements.sh
 RUN bash requirements/install_requirements.sh $ENV_NAME $PYTHON_VER
