@@ -13,6 +13,7 @@ ENV PYTHON_VER=$PYTHON_VER
 ENV QUARTO_VER=$QUARTO_VER
 
 RUN apt-get update \
+  && apt-get -y install dos2unix \
   && apt-get -y install tesseract-ocr \ 
   && apt-get -y install libtesseract-dev \
   && apt-get -y install poppler-utils \
