@@ -80,9 +80,10 @@ def extract_text_from_pdf(pdf_path):
 
 # Extracción de texto
 def extract_text_from_file(file_path):
+    print(file_path)
     file_name, file_extension = os.path.splitext(file_path)
     file_extension = file_extension.lower()
-    if file_extension == '.doc':
+    if file_extension == '.doc' or file_extension == '.pem':
         return extract_text_from_doc(file_path)
     elif file_extension == '.docx':
         return extract_text_from_docx(file_path)
@@ -100,7 +101,13 @@ def extract_text_from_folders(folders):
                 if filename == '.gitignore':
                     continue
                 file_path = os.path.join(root, filename)
-                text = extract_text_from_file(file_path)
+                
+                try:
+                    text = extract_text_from_file(file_path)
+                except:
+                    text = ''
+                
+                print(text)
                 label = folder.split('/')[-1]
 
                 if translator.detect(text).lang == 'es':
