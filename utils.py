@@ -83,7 +83,7 @@ def extract_text_from_file(file_path):
     print(file_path)
     file_name, file_extension = os.path.splitext(file_path)
     file_extension = file_extension.lower()
-    if file_extension == '.doc' or file_extension == '.pem':
+    if file_extension == '.doc':
         return extract_text_from_doc(file_path)
     elif file_extension == '.docx':
         return extract_text_from_docx(file_path)
@@ -104,10 +104,11 @@ def extract_text_from_folders(folders):
                 
                 try:
                     text = extract_text_from_file(file_path)
+                    print('Sin error')
                 except:
                     text = ''
+                    print('Error')
                 
-                print(text)
                 label = folder.split('/')[-1]
 
                 if translator.detect(text).lang == 'es':
