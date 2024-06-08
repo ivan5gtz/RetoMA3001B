@@ -1,4 +1,5 @@
 .DS_Store
 
 labeled_features.csv
+labeled_features_augmented.csv
 __pycache__
